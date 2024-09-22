@@ -16,10 +16,10 @@ jobs:
 
       - name: 安装依赖
         run: |
-          /usr/bin/bash ls -l
+          /usr/bin/ls -l
           npm install
           npm run build
-          /usr/bin/bash ls -l
+          /usr/bin/ls -l
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.6.4
