@@ -2,6 +2,9 @@ name: 测试打包React项目
 
 on: push
 
+permissions:
+  contents: write
+
 jobs:
   npm-build:
     name: npm-build工作
@@ -11,7 +14,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 安装依赖
-        run: npm install
+        run: |
+          npm install
+          npm run build
 
-      - name: 项目打包
-        run: npm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.6.4
+        with:
+          branch: pages     # 把build的生产环境文件放到pages分支里
+          folder: build     # The folder the action should deploy.
+            
