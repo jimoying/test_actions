@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 安装依赖
+        # npm run build ==> 产生dist目录,不是build目录
         run: |
           /usr/bin/ls -l
           npm install
@@ -25,5 +26,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.6.4
         with:
           branch: pages     # 把build的生产环境文件放到pages分支里
-          folder: build     # The folder the action should deploy.
+          folder: dist      # The folder the action should deploy. 
             
